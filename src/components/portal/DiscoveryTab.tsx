@@ -1,10 +1,5 @@
 import { CalendarDays, MapPin, Search, Users } from "lucide-react";
-import {
-  type CampusEvent,
-  CATEGORIES,
-  EventCategory,
-  HERO_PORTRAIT,
-} from "./data";
+import { type CampusEvent, CATEGORIES, HERO_PORTRAIT } from "./data";
 import { categoryCounts, matchesSearch, seatPercent } from "./portal-logic";
 
 interface DiscoveryTabProps {
@@ -174,7 +169,7 @@ function EventCard({ event, registered, onRegister, onViewPass, onJoinWaitlist }
           <div className="flex items-center justify-between text-[11px] font-semibold text-muted-foreground">
             <span className="flex items-center gap-1">
               <Users className="size-3" />
-              {full ? `${pct}% filled` : `${pct}% filled`}
+              {`${pct}% filled`}
             </span>
             <span>
               {event.taken}/{event.capacity} seats
