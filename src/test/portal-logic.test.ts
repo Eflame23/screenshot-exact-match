@@ -14,8 +14,7 @@ const codefusion = events()[0];
 const nritya = events()[1];
 
 describe("portal registration rules", () => {
-  it("decrements available seats and issues a ticket when registering", () => {
-    const before = seatPercent(codefusion);
+  it("fills one seat and issues a ticket when registering", () => {
     expect(codefusion.taken).toBe(78);
     const { events: updated, pass } = registerForEvent(
       events(),
@@ -25,8 +24,8 @@ describe("portal registration rules", () => {
       STUDENT.division
     );
     const after = updated.find((e) => e.id === codefusion.id)!;
-    expect(after.taken).toBe(77);
-    expect(seatPercent(after)).toBe(before - 1);
+    expect(after.taken).toBe(79);
+    expect(seatPercent(after)).toBe(79);
     expect(pass.ticketId).toBe("MIT-ADT-2025-CF982");
     expect(pass.attendee).toBe("Eshan Manoj");
   });
