@@ -131,8 +131,8 @@ export function categoryCounts(events: CampusEvent[]): Record<string, number> {
   for (const c of CATEGORIES) counts[c] = 0;
   for (const e of events) {
     if (e.cancelled) continue;
-    counts.All += 1;
-    counts[e.category] += 1;
+    counts["All"] = (counts["All"] ?? 0) + 1;
+    counts[e.category] = (counts[e.category] ?? 0) + 1;
   }
   return counts;
 }
