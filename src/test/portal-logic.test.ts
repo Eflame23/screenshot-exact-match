@@ -54,7 +54,7 @@ describe("portal registration rules", () => {
       STUDENT.name,
       STUDENT.division
     );
-    expect(afterRegister.find((e) => e.id === codefusion.id)!.taken).toBe(77);
+    expect(afterRegister.find((e) => e.id === codefusion.id)!.taken).toBe(79);
     const { events: updated, passes } = cancelRegistration(afterRegister, [pass], codefusion.id);
     expect(updated.find((e) => e.id === codefusion.id)!.taken).toBe(78);
     expect(passes).toHaveLength(0);
