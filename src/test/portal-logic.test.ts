@@ -48,8 +48,15 @@ describe("portal registration rules", () => {
 
   it("restores exactly one seat when a registration is cancelled", () => {
     const base = events();
-    const { pass } = registerForEvent(base, [], codefusion.id, STUDENT.name, STUDENT.division);
-    const { events: updated, passes } = cancelRegistration(base, [pass], codefusion.id);
+    const { pass, events: afterRegister } = registerForEvent(
+      base,
+      [],
+      codefusion.id,
+      STUDENT.name,
+      STUDENT.division
+    );
+    expect(afterRegister.find((e) => e.id === codefusion.id)!.taken).toBe(77);
+    const { events: updated, passes } = cancelRegistration(afterRegister, [pass], codefusion.id);
     expect(updated.find((e) => e.id === codefusion.id)!.taken).toBe(78);
     expect(passes).toHaveLength(0);
   });
