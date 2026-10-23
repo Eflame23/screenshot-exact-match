@@ -29,7 +29,7 @@ export function QrCode({ value, size = 21, className }: QrCodeProps) {
         const border =
           inRing && (r === 0 || r === 6 || c === 0 || c === 6);
         const core = inRing && r >= 2 && r <= 4 && c >= 2 && c <= 4;
-        grid[rr][cc] = inRing ? border || core : false;
+        grid[rr]![cc]! = inRing ? border || core : false;
       }
     }
   };
@@ -40,7 +40,7 @@ export function QrCode({ value, size = 21, className }: QrCodeProps) {
     for (let c = 0; c < size; c++) {
       const inFinderZone =
         (r < 8 && c < 8) || (r < 8 && c >= size - 8) || (r >= size - 8 && c < 8);
-      if (!inFinderZone) grid[r][c] = rand() < 0.44;
+      if (!inFinderZone) grid[r]![c]! = rand() < 0.44;
     }
   }
 

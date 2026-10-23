@@ -17,7 +17,7 @@ export function DevOpsFooter() {
       <div
         aria-hidden={!open}
         className={`fixed inset-x-0 bottom-11 z-50 transition-transform duration-300 ${
-          open ? "translate-y-0" : "translate-y-full"
+          open ? "translate-y-0" : "translate-y-[calc(100%+2.75rem)]"
         }`}
       >
         <div className="mx-auto max-w-4xl">

@@ -172,7 +172,7 @@ export function PortalApp() {
             category={category}
             onCategoryChange={setCategory}
             registeredIds={registeredIds}
-            onRegister={handleRegister}
+            onRegister={(event) => setModal({ eventId: event.id, stage: "confirm" })}
             onViewPass={handleViewPass}
             onJoinWaitlist={handleJoinWaitlist}
           />
