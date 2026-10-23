@@ -10,8 +10,8 @@ import {
 import { INITIAL_EVENTS, STUDENT } from "@/components/portal/data";
 
 const events = () => INITIAL_EVENTS.map((e) => ({ ...e }));
-const codefusion = events()[0];
-const nritya = events()[1];
+const codefusion = events()[0]!;
+const nritya = events()[1]!;
 
 describe("portal registration rules", () => {
   it("fills one seat and issues a ticket when registering", () => {
@@ -75,8 +75,8 @@ describe("portal registration rules", () => {
       dateLabel: "02 Jun 2025, 10:00 AM",
       capacity: 80,
     });
-    expect(published[0].title).toBe("RoboWars 3.0");
-    expect(published[0].taken).toBe(0);
-    expect(makeTicketId(published[0])).toMatch(/^MIT-ADT-2025-/);
+    expect(published[0]!.title).toBe("RoboWars 3.0");
+    expect(published[0]!.taken).toBe(0);
+    expect(makeTicketId(published[0]!)).toMatch(/^MIT-ADT-2025-/);
   });
 });
